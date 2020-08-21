@@ -15,7 +15,7 @@ doc_to_data <- function(df) {
   anndf_meta <- data_anndf@varMetadata
   anndf_meta$label <- rownames(anndf_meta)
   
-  data <- merge(x = anndf_data_long, y = anndf_meta, by = "label", all = TRUE)
+  data <- merge(x = data_anndf_long, y = anndf_meta, by = "label", all = TRUE)
 
   data %>%
     mutate_if(is.logical, as.character) %>%

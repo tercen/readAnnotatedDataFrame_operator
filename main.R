@@ -6,14 +6,7 @@ doc_to_data <- function(df){
   filename <- tempfile()
   writeBin(ctx$client$fileService$download(df$documentId[1]), filename)
   on.exit(unlink(filename))
-  
-  # data_fcs = read.FCS(filename, transformation = FALSE)
-  # names_parameters = data_fcs@parameters@data$desc
-  # data = as.data.frame(exprs(data_fcs))
-  # col_names = colnames(data)
-  # names_parameters = ifelse(is.na(names_parameters),col_names,names_parameters)
-  # colnames(data) = names_parameters
-  # print(class(data))
+
   data_anndf <- get(load(filename))
   
   data_anndf_long <- tidyr::gather(data_anndf@data, "label", "value") 

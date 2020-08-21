@@ -16,9 +16,13 @@ doc_to_data <- function(df){
   # print(class(data))
   data_anndf <- get(load(filename))
   
-  # data <- pData(data_anndf)
-
+  data_anndf_long <- tidyr::gather(data_anndf@data, "label", "value") 
   
+  anndf_meta <- data_anndf@varMetadata
+  anndf_meta$label <- rownames(anndf_meta)
+  
+  data <- merge(x = annndf_data_long, y = annndf_meta, by = "label", all = TRUE)
+
   data %>%
     mutate_if(is.logical, as.character) %>%
     mutate_if(is.integer, as.double) %>%

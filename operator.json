@@ -1,9 +1,9 @@
 {
-  "name": "Median",
-  "description": "Return the medium value of a cell",
-  "tags": ["basic statistics"],
+  "name": "AnnotatedDataFrame",
+  "description": "Converts a RData file containing an AnnotatedDataFrame object to a Tercen dataset.",
+  "tags": ["file conversion"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_operator"],
+  "urls": ["https://github.com/tercen/readAnnotatedDataFrame_operator"],
   "properties": []
 }
 

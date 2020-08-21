@@ -1,8 +1,9 @@
 library(tercen)
 library(dplyr)
+library(tidyr)
 library(Biobase)
 
-doc_to_data <- function(df){
+doc_to_data <- function(df) {
   filename <- tempfile()
   writeBin(ctx$client$fileService$download(df$documentId[1]), filename)
   on.exit(unlink(filename))
